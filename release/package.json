@@ -1,6 +1,6 @@
 {
   "name": "redux-observable-decorator",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Decorators for Redux Observable",
   "main": "bundles/redux-observable-decorator.umd.js",
   "module": "index.js",
@@ -14,7 +14,8 @@
     "copy": "cpy LICENSE package.json README.md release",
     "postbuild": "npm run clean:post && npm run copy",
     "clean:pre": "rimraf release",
-    "clean:post": "rimraf index.ngsummary.json"
+    "clean:post": "rimraf index.ngsummary.json",
+    "postversion": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -63,5 +64,6 @@
     "uglifyjs": "^2.4.10",
     "webpack": "^2.1.0-beta.28",
     "zone.js": "^0.7.4"
-  }
+  },
+  "files": ["./release"]
 }
