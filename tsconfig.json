@@ -24,7 +24,9 @@
   },
   "exclude": [
     "node_modules",
-    "release"
+    "release",
+    "spec",
+    "tests.bundle.ts"
   ],
   "angularCompilerOptions": {
     "genDir": ".ngc"

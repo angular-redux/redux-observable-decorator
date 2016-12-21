@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,IAAI,EAAE,WAAW,EAAgB,gBAAgB,EAAE,MAAM,sBAAsB,CAAA","sourcesContent":["export { Epic, createEpics, EpicMetadata, getEpicsMetadata } from './src/epic-decorator'\ninterface DecoratorInvocation {\n  type: Function;\n  args?: any[];\n}\n"]}
