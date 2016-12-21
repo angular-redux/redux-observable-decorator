@@ -28,20 +28,11 @@ export function getEpicsMetadata(instance: any): EpicMetadata[] {
 
 export function createEpics<T>(...instances: any[]): EpicMiddleware<T> {
   const epicsMetaData = instances
-    .map(instance =>
-      ({
-        instance,
-        metaData: getEpicsMetadata(instance)
-      })
-    ).map(({instance, metaData}) =>
-      metaData
-        .map(({propertyName}) => instance[propertyName]));
+    .map(instance => getEpicsMetadata(instance)
+      .map(({propertyName}) => instance[propertyName]));
 
   const epics = [].concat(...epicsMetaData);
-
-
   const rootEpic = combineEpics<T>(...epics);
   return createEpicMiddleware<T>(rootEpic);
-
 
 }
