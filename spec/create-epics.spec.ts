@@ -50,10 +50,14 @@ describe('createEpics', () => {
 
   it('should handle multipul classes', () => {
     class TestOne {
-      @Epic() epic = (action$) => action$.ofType('TEST_ONE_IN').mapTo({ type: 'TEST_ONE_OUT' });
+      @Epic() a = (action$) => action$.ofType('TEST_A_IN').mapTo({ type: 'TEST_A_OUT' });
+      @Epic() b = (action$) => action$.ofType('TEST_B_IN').mapTo({ type: 'TEST_B_OUT' });
+      @Epic() c = (action$) => action$.ofType('TEST_C_IN').mapTo({ type: 'TEST_C_OUT' });
     }
     class TestTwo {
-      @Epic() epic = (action$) => action$.ofType('TEST_TWO_IN').mapTo({ type: 'TEST_TWO_OUT' });
+      @Epic() d = (action$) => action$.ofType('TEST_D_IN').mapTo({ type: 'TEST_D_OUT' });
+      @Epic() e = (action$) => action$.ofType('TEST_E_IN').mapTo({ type: 'TEST_E_OUT' });
+      @Epic() f = (action$) => action$.ofType('TEST_F_IN').mapTo({ type: 'TEST_F_OUT' });
     }
 
     const reducer = (state = [], action) => state.concat(action);
@@ -63,13 +67,27 @@ describe('createEpics', () => {
     const store = createStore(reducer, applyMiddleware(epicMiddleware));
     const expected = [
       { type: '@@redux/INIT' },
-      { type: 'TEST_ONE_IN' },
-      { type: 'TEST_ONE_OUT' },
-      { type: 'TEST_TWO_IN' },
-      { type: 'TEST_TWO_OUT' }
+      { type: 'TEST_A_IN' },
+      { type: 'TEST_A_OUT' },
+      { type: 'TEST_B_IN' },
+      { type: 'TEST_B_OUT' },
+      { type: 'TEST_C_IN' },
+      { type: 'TEST_C_OUT' },
+      { type: 'TEST_D_IN' },
+      { type: 'TEST_D_OUT' },
+      { type: 'TEST_E_IN' },
+      { type: 'TEST_E_OUT' },
+      { type: 'TEST_F_IN' },
+      { type: 'TEST_F_OUT' }
     ];
-    store.dispatch({ type: 'TEST_ONE_IN' });
-    store.dispatch({ type: 'TEST_TWO_IN' });
+
+    store.dispatch({ type: 'TEST_A_IN' });
+    store.dispatch({ type: 'TEST_B_IN' });
+    store.dispatch({ type: 'TEST_C_IN' });
+    store.dispatch({ type: 'TEST_D_IN' });
+    store.dispatch({ type: 'TEST_E_IN' });
+    store.dispatch({ type: 'TEST_F_IN' });
+
     const actual = store.getState();
 
     expect(actual).toEqual(expected);
