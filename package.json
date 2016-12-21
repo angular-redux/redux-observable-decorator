@@ -1,6 +1,6 @@
 {
   "name": "redux-observable-decorator",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Decorators for Redux Observable",
   "main": "bundles/redux-observable-decorator.umd.js",
   "module": "index.js",
