@@ -47,4 +47,31 @@ describe('createEpics', () => {
 
     expect(actual).toEqual(expected);
   });
+
+  it('should handle multipul classes', () => {
+    class TestOne {
+      @Epic() epic = (action$) => action$.ofType('TEST_ONE_IN').mapTo({ type: 'TEST_ONE_OUT' });
+    }
+    class TestTwo {
+      @Epic() epic = (action$) => action$.ofType('TEST_TWO_IN').mapTo({ type: 'TEST_TWO_OUT' });
+    }
+
+    const reducer = (state = [], action) => state.concat(action);
+    const epicOne = new TestOne();
+    const epicTwo = new TestTwo();
+    const epicMiddleware = createEpics(epicOne, epicTwo);
+    const store = createStore(reducer, applyMiddleware(epicMiddleware));
+    const expected = [
+      { type: '@@redux/INIT' },
+      { type: 'TEST_ONE_IN' },
+      { type: 'TEST_ONE_OUT' },
+      { type: 'TEST_TWO_IN' },
+      { type: 'TEST_TWO_OUT' }
+    ];
+    store.dispatch({ type: 'TEST_ONE_IN' });
+    store.dispatch({ type: 'TEST_TWO_IN' });
+    const actual = store.getState();
+
+    expect(actual).toEqual(expected);
+  });
 });
