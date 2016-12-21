@@ -14,7 +14,8 @@
     "copy": "cpy LICENSE package.json README.md release",
     "postbuild": "npm run clean:post && npm run copy",
     "clean:pre": "rimraf release",
-    "clean:post": "rimraf index.ngsummary.json"
+    "clean:post": "rimraf index.ngsummary.json",
+    "postversion": "npm run build"
   },
   "repository": {
     "type": "git",
