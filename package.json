@@ -1,6 +1,6 @@
 {
   "name": "redux-observable-decorator",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Decorators for Redux Observable",
   "main": "./release/index.js",
   "files": [
