@@ -19,14 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/e-schultz/redux-observable-decorator.git"
+    "url": "git+https://github.com/angular-redux/redux-observable-decorator.git"
   },
   "author": "Evan Schultz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/e-schultz/redux-observable-decorator/issues"
+    "url": "https://github.com/angular-redux/redux-observable-decorator/issues"
   },
-  "homepage": "https://github.com/e-schultz/redux-observable-decorator#readme",
+  "homepage": "https://github.com/angular-redux/redux-observable-decorator#readme",
   "peerDependencies": {
     "redux": "3.*",
     "redux-observable": "^0.10.0 || ^0.11.0 || ^0.12.0"
