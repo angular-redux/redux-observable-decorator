@@ -1,6 +1,6 @@
 {
   "name": "redux-observable-decorator",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Decorators for Redux Observable",
   "main": "./release/index.js",
   "files": [
@@ -27,7 +27,7 @@
     "url": "https://github.com/e-schultz/redux-observable-decorator/issues"
   },
   "homepage": "https://github.com/e-schultz/redux-observable-decorator#readme",
- "peerDependencies": {
+  "peerDependencies": {
     "redux": "3.*",
     "redux-observable": "^0.10.0 || ^0.11.0 || ^0.12.0"
   },
