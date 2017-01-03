@@ -2,7 +2,7 @@
 
 Decorators for Redux Observable
 
-When using redux with Angular with ng-redux and redux-observable, it's common to create your epics as an injectable class, and when configuring the store - creating an epic middleware for each one, or using combineEpics:
+When using Redux with Angular with ng-redux and redux-observable, it's common to create your epics as an injectable class, and when configuring the store - creating an epic middleware for each one, or using combineEpics:
 
 ```ts
 @Injectable()
@@ -21,19 +21,19 @@ export class AppModule {
 			someEpics.epicTwo
 		)
 		
-		ngRedux.confgureStore(reducer,[createEpicMidleware(epics)])
+		ngRedux.configureStore(reducer,[createEpicMidleware(epics)])
 		
 		// or 
 
 		let epicOne = createMiddleware(someEpics.epicOne);
 		let epicTwo = createMiddleware(someEpics.epicOne);
 
-		ngRedux.confgureStore(reducer,[epicOne, epicTwo)])
+		ngRedux.configureStore(reducer,[epicOne, epicTwo)])
 	}
 }
 ```
 
-This decorator is intended to make it easier to makr which properties / methids in a class are an Epic to simplify creating the epic middleware for your application.
+This decorator is intended to make it easier to mark which properties / methods in a class are Epics to simplify creating the epic middleware for your application.
 
 ```ts
 import { Epic } from 'redux-observable-decorator'
@@ -72,9 +72,9 @@ const epicMiddleware = createEpics(epics);
 const store = createStore(reducer, applyMiddleware(epicMiddleware));
 ```
 
-# Insparation
+# Inspiration
 
-The `@Effects` decorator from [ngrx/effects](https://github.com/ngrx/effects)
+The `@Effect` decorator from [ngrx/effects](https://github.com/ngrx/effects)
 
 # Todo 
 
@@ -84,3 +84,4 @@ The `@Effects` decorator from [ngrx/effects](https://github.com/ngrx/effects)
 * [ ] Get test coverage working 
 * [ ] Some Anglar 2 / integration tests 
 * [ ] Example App
+* [ ] Strategy for lazy loading epics (to support code-splitting)?
