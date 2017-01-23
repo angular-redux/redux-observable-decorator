@@ -26,7 +26,7 @@ export function getEpicsMetadata(instance: any): EpicMetadata[] {
 
 }
 
-export function createEpics<T>(...instances: any[]): EpicMiddleware<T> {
+export function createEpics<T, S>(...instances: any[]): EpicMiddleware<T, S> {
   const epicsMetaData = instances
     .map(instance => getEpicsMetadata(instance)
       .map(({propertyName}) => instance[propertyName]));
