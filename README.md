@@ -1,3 +1,7 @@
+[![CircleCI](https://circleci.com/gh/angular-redux/redux-observable-decorator/tree/master.svg?style=svg)](https://circleci.com/gh/angular-redux/redux-observable-decorator/tree/master)
+[![npm version](https://img.shields.io/npm/v/redux-observable-decorator.svg)](https://www.npmjs.com/package/redux-observable-decorator)
+[![npm downloads](https://img.shields.io/npm/dt/redux-observable-decorator.svg)](https://www.npmjs.com/package/redux-observable-decorator)
+
 # redux-observable-decorator
 
 Decorators for Redux Observable
