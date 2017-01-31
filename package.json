@@ -17,10 +17,7 @@
     "clean:post": "rimraf **/*.ngsummary.json",
     "postversion": "npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/angular-redux/redux-observable-decorator.git"
-  },
+  "repository": "git+https://github.com/angular-redux/redux-observable-decorator.git",
   "author": "Evan Schultz",
   "license": "MIT",
   "bugs": {
@@ -45,14 +42,14 @@
     "core-js": "^2.4.1",
     "istanbul-instrumenter-loader": "^1.1.0",
     "jasmine-core": "^2.5.2",
-    "karma": "^1.3.0",
+    "karma": "^1.4.1",
     "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.1.0",
     "karma-mocha-reporter": "^2.2.1",
     "karma-sourcemap-loader": "^0.3.7",
-    "karma-typescript-preprocessor": "^0.3.0",
-    "karma-webpack": "^1.8.0",
+    "karma-typescript-preprocessor": "^0.3.1",
+    "karma-webpack": "^2.0.2",
     "redux": "^3.6.0",
     "redux-observable": "^0.12.2",
     "reflect-metadata": "^0.1.8",
@@ -61,8 +58,9 @@
     "ts-loader": "^1.3.3",
     "tslint": "^4.1.1",
     "tslint-loader": "^3.3.0",
+    "typescript": "latest",
     "uglifyjs": "^2.4.10",
-    "webpack": "^2.1.0-beta.28",
+    "webpack": "^2.2.1",
     "zone.js": "^0.7.4"
   }
 }

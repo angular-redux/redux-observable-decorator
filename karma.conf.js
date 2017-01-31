@@ -40,7 +40,7 @@ module.exports = function (karma) {
     logLevel: karma.LOG_INFO,
     autoWatch: true,
     singleRun: false,
-    webpackServer: { noInfo: true },
+    webpackServer: { noInfo: false },
     webpack: {
       devtool: 'inline-source-map',
       resolve: {
