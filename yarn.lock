@@ -2406,9 +2406,9 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
-redux-observable@^0.12.2:
-  version "0.12.2"
-  resolved "https://registry.yarnpkg.com/redux-observable/-/redux-observable-0.12.2.tgz#4bc1657c7eedace577e114b74ffe6f6fb2b36ccf"
+redux-observable@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/redux-observable/-/redux-observable-0.13.0.tgz#35b26c2cdbb71e499b31ca9961da0581c2973909"
 
 redux@^3.6.0:
   version "3.6.0"
