@@ -26,13 +26,29 @@ export function getEpicsMetadata(instance: any): EpicMetadata[] {
 
 }
 
-export function createEpics<T, S>(...instances: any[]): EpicMiddleware<T, S> {
+function isOptions(...instanceOrOptions) {
+
+  let option = instanceOrOptions[instanceOrOptions.length - 1];
+  let keys = option ? Object.keys(option) : [];
+  return keys.indexOf('dependencies') >= 0 || keys.indexOf('adapter') >= 0;
+
+
+}
+export function createEpics<T, S>(epic, ...epicsOrOptions): EpicMiddleware<T, S> {
+  let instances;
+  let options;
+  if (isOptions(...epicsOrOptions)) {
+    options = epicsOrOptions.slice(epicsOrOptions.length - 1, epicsOrOptions.length)[0];
+
+  }
+  instances = [epic, ...epicsOrOptions];
+
   const epicsMetaData = instances
     .map(instance => getEpicsMetadata(instance)
-      .map(({propertyName}) => instance[propertyName]));
+      .map(({ propertyName }) => instance[propertyName]));
 
   const epics = [].concat(...epicsMetaData);
   const rootEpic = combineEpics<T, S>(...epics);
-  return createEpicMiddleware<T, S>(rootEpic);
+  return createEpicMiddleware<T, S>(rootEpic, options);
 
 }

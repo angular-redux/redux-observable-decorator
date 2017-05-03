@@ -1,5 +1,26 @@
 # Change Log
 
+# 1.1.0
+
+* Update dependencies to work with redux-observable 0.14.*
+* Add ability to pass redux-observable Options into create epics
+
+*note* If using the `dependencies` feature of redux-observable-options, you will need to use redux-observable 0.14.0 or greater.
+
+
+# Passing in dependencies
+
+```ts
+class TestOne {
+      @Epic() a = (action$, store, deps) => action$
+        .ofType('TEST_A_IN')
+        .mapTo({ type: 'TEST_A_OUT', payload: deps.foo() });
+}
+  
+const epicMiddleware = createEpics(epicOne, { dependencies: {
+  foo: function() { return 'bar'; }
+}});  
+```
 # 1.0.0
 
 ## Breaking Change 
