@@ -1,3 +1,4 @@
+import { Action } from 'redux';
 import { EpicMiddleware, combineEpics, createEpicMiddleware } from 'redux-observable';
 const METADATA_KEY = 'redux-observable-decorator-metadata';
 
@@ -34,7 +35,7 @@ function isOptions(...instanceOrOptions) {
 
 
 }
-export function createEpics<T, S>(epic, ...epicsOrOptions): EpicMiddleware<T, S> {
+export function createEpics<T extends Action, S, D = any>(epic, ...epicsOrOptions): EpicMiddleware<T, S, D> {
   let instances;
   let options;
   if (isOptions(...epicsOrOptions)) {
@@ -48,7 +49,7 @@ export function createEpics<T, S>(epic, ...epicsOrOptions): EpicMiddleware<T, S>
       .map(({ propertyName }) => instance[propertyName]));
 
   const epics = [].concat(...epicsMetaData);
-  const rootEpic = combineEpics<T, S>(...epics);
-  return createEpicMiddleware<T, S>(rootEpic, options);
+  const rootEpic = combineEpics<T extends Action, S, D = any>(...epics);
+  return createEpicMiddleware<T extends Action, S, D = any>(rootEpic, options);
 
 }
