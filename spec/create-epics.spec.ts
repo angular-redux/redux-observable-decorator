@@ -97,13 +97,13 @@ describe('createEpics', () => {
     class TestOneDep {
       @Epic() a = (action$, store, deps) => action$
         .ofType('TEST_A_IN')
-        .mapTo({ type: 'TEST_A_OUT', payload: deps.foo() });
+        .mapTo({ type: 'TEST_A_OUT', payload: deps.foo() })
     }
 
     class TestTwoDep {
       @Epic() d = (action$, store, deps) => action$
         .ofType('TEST_D_IN')
-        .mapTo({ type: 'TEST_D_OUT', payload: deps.foo() });
+        .mapTo({ type: 'TEST_D_OUT', payload: deps.foo() })
 
     }
 
