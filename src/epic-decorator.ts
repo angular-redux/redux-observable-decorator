@@ -58,7 +58,7 @@ export function createEpics<T extends Action, S, D>(epic, ...epicsOrOptions): Ep
         .map(({ propertyName }) => instance[propertyName]));
 
     const epics    = [].concat(...epicsMetaData);
-    const rootEpic = combineEpics(...epics);
+    const rootEpic = combineEpics<T, S, D>(...epics);
 
-    return createEpicMiddleware(rootEpic, options);
+    return createEpicMiddleware<T, S, D>(rootEpic, options);
 }
