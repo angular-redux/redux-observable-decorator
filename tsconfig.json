@@ -11,29 +11,17 @@
     "moduleResolution": "node",
     "declaration": true,
     "module": "commonjs",
-    "lib": [
-      "es5",
-      "dom",
-      "es2015"
-    ],
-    "types": [
-      "jasmine",
-      "node"
-    ],
+    "lib": ["es5", "dom", "es2015"],
+    "types": ["jasmine", "node"],
     "baseUrl": ".",
     "rootDir": ".",
     "paths": {
-      "@redux-observable-decorator": [
-        "./"
-      ]
+      "@redux-observable-decorator": ["./"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "release",
-    "tests.bundle.ts"
-  ],
+  "exclude": ["node_modules", "release", "tests.bundle.ts"],
   "angularCompilerOptions": {
     "genDir": ".ngc"
-  }
+  },
+  "types": ["jasmine", "node"]
 }
