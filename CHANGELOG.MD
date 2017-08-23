@@ -1,5 +1,9 @@
 # Change Log
 
+# 1.2.0-0
+
+* Update dependencies to support redux-observable 0.15+
+
 # 1.1.0
 
 * Update dependencies to work with redux-observable 0.14.*
