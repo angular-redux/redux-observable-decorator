@@ -3,9 +3,7 @@
   "version": "1.2.0",
   "description": "Decorators for Redux Observable",
   "main": "./release/index.js",
-  "files": [
-    "release"
-  ],
+  "files": ["release"],
   "typings": "./release/index.d.ts",
   "scripts": {
     "test": "karma start --single-run",
