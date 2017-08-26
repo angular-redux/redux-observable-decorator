@@ -2,30 +2,9 @@
     "name":             "@actra-development-oss/redux-observable-decorator",
     "version":          "1.2.0",
     "description":      "Decorators for Redux Observable",
-    "main":             "./dist/release/index.js",
-    "files":            ["dist/release"],
-    "typings":          "./dist/release/index.d.ts",
-    "scripts":          {
-        "test":             "karma start --single-run",
-        "build":            "npm run build:js",
-        "build:js":         "npm run ngc -- -p ./tsconfig.dist.json",
-        "prebuild":         "npm run test && npm run clean:pre",
-        "postbuild":        "npm run clean:post",
-        "clean:pre":        "npm run clean:dist",
-        "clean:post":       "npm run rimraf -- ./**/*.ngsummary.json",
-        "postversion":      "npm run build",
-        "clean:dist":       "npm run rimraf -- dist",
-        "preparepublish":   "npm run preparepublish:1 && npm run preparepublish:2 && npm run preparepublish:3 && npm run preparepublish:4",
-        "preparepublish:1": "npm run ncp -- ./CHANGELOG.MD ./dist/CHANGELOG.MD",
-        "preparepublish:2": "npm run ncp -- ./LICENSE ./dist/LICENSE",
-        "preparepublish:3": "npm run ncp -- ./package.dist.json ./dist/package.json",
-        "preparepublish:4": "npm run ncp -- ./README.md ./dist/README.md",
-        "publishToNpmjs":   "npm run build && npm run preparepublish && npm publish ./dist --access public --registry https://registry.npmjs.com/ && npm run clean:dist",
-        "mkdirp":           "./node_modules/.bin/mkdirp",
-        "ncp":              "./node_modules/.bin/ncp",
-        "ngc":              "./node_modules/.bin/ngc",
-        "rimraf":           "./node_modules/.bin/rimraf"
-    },
+    "main":             "./release/index.js",
+    "files":            ["release"],
+    "typings":          "./release/index.d.ts",
     "repository":       "git+https://github.com/actra-development-oss/redux-observable-decorator.git",
     "author":           "Evan Schultz",
     "contributors":     [
@@ -40,11 +19,7 @@
         "url": "https://github.com/actra-development-oss/redux-observable-decorator/issues"
     },
     "homepage":      "https://github.com/actra-development-oss/redux-observable-decorator#readme",
-    "publishConfig":    {
-        "registry": "https://registry.npmjs.com/",
-        "access":   "public"
-    },
-    "peerDependencies": {
+    "dependencies": {
         "redux":            "3.*",
         "redux-observable": "^0.16.0"
     },
@@ -71,6 +46,7 @@
         "karma-sourcemap-loader":            "^0.3.7",
         "karma-typescript-preprocessor":     "^0.3.1",
         "karma-webpack":                     "^2.0.4",
+        "mkdirp":                            "^0.5.1",
         "ncp":                               "^2.0.0",
         "redux":                             "^3.7.2",
         "redux-observable":                  "^0.16.0",

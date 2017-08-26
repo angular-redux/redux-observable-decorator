@@ -1,29 +1,32 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "declaration": true,
-    "stripInternal": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "noEmitOnError": false,
-    "outDir": "./release",
-    "rootDir": "./src",
-    "sourceMap": true,
-    "inlineSources": true,
-    "lib": ["es2015", "dom"],
-    "target": "es5",
-    "skipLibCheck": true
-  },
-  "files": [
-    "src/index.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "spec"
-  ],
-  "angularCompilerOptions": {
-    "strictMetadataEmit": true
-  }
+    "compilerOptions": {
+        "baseUrl":                ".",
+        "declaration":            true,
+        "stripInternal":          true,
+        "emitDecoratorMetadata":  true,
+        "experimentalDecorators": true,
+        "module":                 "commonjs",
+        "moduleResolution":       "node",
+        "noEmitOnError":          false,
+        "outDir":                 "./dist/release",
+        "rootDir":                "./src",
+        "sourceMap":              true,
+        "inlineSources":          true,
+        "lib":                    [
+            "es2015",
+            "dom"
+        ],
+        "target":                 "es5",
+        "skipLibCheck":           true
+    },
+    "files": [
+        "src/index.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "spec"
+    ],
+    "angularCompilerOptions": {
+        "strictMetadataEmit": true
+    }
 }
