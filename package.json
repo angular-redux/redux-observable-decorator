@@ -71,6 +71,7 @@
         "karma-sourcemap-loader":            "^0.3.7",
         "karma-typescript-preprocessor":     "^0.3.1",
         "karma-webpack":                     "^2.0.4",
+        "mkdirp":                            "^0.5.1",
         "ncp":                               "^2.0.0",
         "redux":                             "^3.7.2",
         "redux-observable":                  "^0.16.0",
