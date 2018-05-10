@@ -8,7 +8,7 @@
     "scripts":          {
         "test":             "karma start --single-run",
         "build":            "npm run build:js",
-        "build:js":         "npm run ngc -- -p ./tsconfig.dist.json --prod",
+        "build:js":         "npm run ngc -- -p ./tsconfig.dist.json",
         "prebuild":         "npm run test && npm run clean:pre",
         "postbuild":        "npm run clean:post",
         "clean:pre":        "npm run clean:dist",

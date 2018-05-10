@@ -27,6 +27,7 @@
         "spec"
     ],
     "angularCompilerOptions": {
-        "strictMetadataEmit": true
+        "strictMetadataEmit":            true,
+        "disableTypeScriptVersionCheck": true
     }
 }
