@@ -1,5 +1,9 @@
 import { Action } from 'redux';
-import { Epic, EpicMiddleware, combineEpics, createEpicMiddleware } from 'redux-observable';
+import {
+    EpicMiddleware,
+    combineEpics,
+    createEpicMiddleware
+} from 'redux-observable';
 
 
 const METADATA_KEY = 'redux-observable-decorator-metadata';

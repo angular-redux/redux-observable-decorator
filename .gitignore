@@ -45,3 +45,6 @@ release
 .project
 .settings
 *.ngsummary.json
+redux-observable-decorator.iml
+.idea
+yarn.lock

@@ -32,7 +32,8 @@
         "tests.bundle.ts"
     ],
     "angularCompilerOptions": {
-        "genDir": ".ngc"
+        "genDir":                        ".ngc",
+        "disableTypeScriptVersionCheck": true
     },
     "types":                  [
         "jasmine",

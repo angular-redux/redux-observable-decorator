@@ -1,5 +1,11 @@
 # Change Log
 
+# 2.0.0
+
+* Update to rxJS 6.1.0
+* Update to redux-observable 1.0.0-alpha.2 (required for rxJS 6.1.0)
+* Update other dependencies
+
 # 1.2.0
 
 * Update dependencies to support redux-observable 0.16
