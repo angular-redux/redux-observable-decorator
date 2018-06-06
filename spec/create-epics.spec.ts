@@ -23,15 +23,17 @@ describe('createEpics', () => {
             @Epic() epic = (action$) => action$.ofType('TEST_IN').pipe(mapTo({type: 'TEST_OUT'}));
         }
 
-        const reducer        = (state = [], action) => state.concat(action);
-        const epics          = new Test();
-        const epicMiddleware = createEpics(epics);
-        const store          = createStore(reducer, applyMiddleware(epicMiddleware));
-        const expected       = [
+        const reducer            = (state = [], action) => state.concat(action);
+        const epics              = new Test();
+        const {middleware, epic} = createEpics(epics);
+        const store              = createStore(reducer, applyMiddleware(middleware));
+        const expected           = [
             {type: '@@redux/INIT'},
             {type: 'TEST_IN'},
             {type: 'TEST_OUT'}
         ];
+
+        middleware.run(epic);
 
         store.dispatch({type: 'TEST_IN'});
 
@@ -47,11 +49,11 @@ describe('createEpics', () => {
             @Epic() epicThree = (action$) => action$.ofType('TEST_TWO').pipe(mapTo({type: 'TEST_THREE'}));
         }
 
-        const reducer        = (state = [], action) => state.concat(action);
-        const epics          = new Test();
-        const epicMiddleware = createEpics(epics);
-        const store          = createStore(reducer, applyMiddleware(epicMiddleware));
-        const expected       = [
+        const reducer            = (state = [], action) => state.concat(action);
+        const epics              = new Test();
+        const {middleware, epic} = createEpics(epics);
+        const store              = createStore(reducer, applyMiddleware(middleware));
+        const expected           = [
             {type: '@@redux/INIT'},
             {type: 'TEST_IN'},
             {type: 'TEST_OUT'},
@@ -59,6 +61,8 @@ describe('createEpics', () => {
             {type: 'TEST_TWO'},
             {type: 'TEST_THREE'}
         ];
+
+        middleware.run(epic);
 
         store.dispatch({type: 'TEST_IN'});
         store.dispatch({type: 'TEST_TWO'});
@@ -81,11 +85,11 @@ describe('createEpics', () => {
             @Epic() f = (action$) => action$.ofType('TEST_F_IN').pipe(mapTo({type: 'TEST_F_OUT'}));
         }
 
-        const reducer        = (state = [], action) => state.concat(action);
-        const epicOne        = new TestOne();
-        const epicTwo        = new TestTwo();
-        const epicMiddleware = createEpics(epicOne, epicTwo);
-        const store          = createStore(reducer, applyMiddleware(epicMiddleware));
+        const reducer            = (state = [], action) => state.concat(action);
+        const epicOne            = new TestOne();
+        const epicTwo            = new TestTwo();
+        const {middleware, epic} = createEpics(epicOne, epicTwo);
+        const store              = createStore(reducer, applyMiddleware(middleware));
         const expected       = [
             {type: '@@redux/INIT'},
             {type: 'TEST_A_IN'},
@@ -101,6 +105,8 @@ describe('createEpics', () => {
             {type: 'TEST_F_IN'},
             {type: 'TEST_F_OUT'}
         ];
+
+        middleware.run(epic);
 
         store.dispatch({type: 'TEST_A_IN'});
         store.dispatch({type: 'TEST_B_IN'});
@@ -127,18 +133,20 @@ describe('createEpics', () => {
               .pipe(mapTo({type: 'TEST_D_OUT', payload: deps.foo()}))
         }
 
-        const reducer        = (state = [], action) => state.concat(action);
-        const epicOne        = new TestOneDep();
-        const epicTwo        = new TestTwoDep();
-        const epicMiddleware = createEpics(epicOne, epicTwo, {dependencies: {foo: function () { return 'bar'; }}});
-        const store          = createStore(reducer, applyMiddleware(epicMiddleware));
-        const expected       = [
+        const reducer            = (state = [], action) => state.concat(action);
+        const epicOne            = new TestOneDep();
+        const epicTwo            = new TestTwoDep();
+        const {middleware, epic} = createEpics(epicOne, epicTwo, {dependencies: {foo: function () { return 'bar'; }}});
+        const store              = createStore(reducer, applyMiddleware(middleware));
+        const expected           = [
             {type: '@@redux/INIT'},
             {type: 'TEST_A_IN'},
             {type: 'TEST_A_OUT', payload: 'bar'},
             {type: 'TEST_D_IN'},
             {type: 'TEST_D_OUT', payload: 'bar'}
         ];
+
+        middleware.run(epic);
 
         store.dispatch({type: 'TEST_A_IN'});
         store.dispatch({type: 'TEST_D_IN'});
@@ -155,15 +163,17 @@ describe('createEpics', () => {
             }
         }
 
-        const reducer = (state = [], action) => state.concat(action);
-        const epicOne = new TestOneNoDep();
-        const epicMiddleware = createEpics(epicOne);
-        const store = createStore(reducer, applyMiddleware(epicMiddleware));
+        const reducer            = (state = [], action) => state.concat(action);
+        const epicOne            = new TestOneNoDep();
+        const {middleware, epic} = createEpics(epicOne);
+        const store              = createStore(reducer, applyMiddleware(middleware));
         const expected = [
             {type: '@@redux/INIT'},
             {type: 'TEST_A_IN'},
             {type: 'TEST_A_OUT', payload: undefined}
         ];
+
+        middleware.run(epic);
 
         store.dispatch({type: 'TEST_A_IN'});
 

@@ -1,5 +1,10 @@
 # Change Log
 
+# 2.1.0 *BREAKING*
+
+* Updated to redux-observable 1.0.0-beta.2
+* Changed createEpics() to return an object containing middleware and root epic
+
 # 2.0.0
 
 * Update to rxJS 6.1.0

@@ -1,5 +1,6 @@
 import { Action } from 'redux';
 import {
+    Epic,
     EpicMiddleware,
     combineEpics,
     createEpicMiddleware
@@ -47,7 +48,7 @@ function isOptions(...instanceOrOptions) {
 }
 
 
-export function createEpics<T extends Action, S, D>(epic, ...epicsOrOptions): EpicMiddleware<T, S, D> {
+export function createEpics<T extends Action, O extends T = T, S = void, D = any>(epic, ...epicsOrOptions): {middleware: EpicMiddleware<T, O, S, D>, epic: Epic<T, O, S, D>} {
     let instances;
     let options;
 
@@ -62,7 +63,7 @@ export function createEpics<T extends Action, S, D>(epic, ...epicsOrOptions): Ep
         .map(({ propertyName }) => instance[propertyName]));
 
     const epics    = [].concat(...epicsMetaData);
-    const rootEpic = combineEpics<T, S, D>(...epics);
+    const rootEpic = combineEpics<T, O, S, D>(...epics);
 
-    return createEpicMiddleware<T, S, D>(rootEpic, options);
+    return {middleware: createEpicMiddleware<T,O, S, D>(options), epic: rootEpic};
 }

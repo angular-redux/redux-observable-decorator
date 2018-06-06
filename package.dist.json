@@ -1,6 +1,6 @@
 {
     "name":             "@actra-development-oss/redux-observable-decorator",
-    "version":          "2.0.0",
+    "version":          "2.1.0",
     "description":      "Decorators for Redux Observable",
     "main":             "./release/index.js",
     "files":            ["release"],
@@ -49,7 +49,7 @@
         "mkdirp":                            "^0.5.1",
         "ncp":                               "^2.0.0",
         "redux":                             "^4.0.0",
-        "redux-observable":                  "^1.0.0-alpha.2",
+        "redux-observable":                  "^1.0.0-beta.1",
         "reflect-metadata":                  "^0.1.12",
         "rimraf":                            "^2.6.2",
         "rxjs":                              "^6.1.0",
