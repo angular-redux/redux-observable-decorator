@@ -1,5 +1,6 @@
 # misc
 .vscode
+.DS_Store
 
 # Logs
 logs
@@ -32,7 +33,7 @@ build/Release
 # Dependency directories
 node_modules
 jspm_packages
-release 
+release
 
 # Optional npm cache directory
 .npm

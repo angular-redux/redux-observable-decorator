@@ -42,6 +42,7 @@ module.exports = function (karma) {
     singleRun: false,
     webpackServer: { noInfo: false },
     webpack: {
+      mode: 'development',
       devtool: 'inline-source-map',
       resolve: {
         extensions: ['.ts', '.js']
@@ -57,7 +58,7 @@ module.exports = function (karma) {
             ]
           },
           {
-            test: /\.ts?$/,
+            test: /\.ts$/,
             exclude: /(node_modules)/,
             loader: 'ts-loader'
           },
@@ -79,7 +80,7 @@ module.exports = function (karma) {
             failOnHint: false,
             resourcePath: 'src'
           }
-        })
+        }),
       ]
     }
   });

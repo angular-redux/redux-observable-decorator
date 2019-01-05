@@ -1,4 +1,4 @@
-import { Epic, getEpicsMetadata, createEpics } from '../src/epic-decorator';
+import { Epic, getEpicsMetadata } from '../src/epic-decorator';
 
 describe('Epic Metadata', () => {
   it('should get the epic metadata', () => {
