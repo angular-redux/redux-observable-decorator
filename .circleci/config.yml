@@ -1,0 +1,24 @@
+version: 2.0
+
+source_cache: &source_cache
+  key: 'main-{{.Environment.NODE_VERSION}}-{{checksum "yarn.lock"}}'
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10-browsers
+
+    steps:
+      - checkout
+      - save_cache:
+
+      - restore_cache:
+          <<: *source_cache
+      - run: yarn install
+      - save_cache:
+          <<: *source_cache
+          paths:
+            - ~/.yarn
+            - ~/.cache/yarn
+            - node_modules
+      - run: yarn test

@@ -8,13 +8,12 @@
   ],
   "typings": "./release/index.d.ts",
   "scripts": {
+    "prebuild": "npm run clean",
+    "build": "tsc --build tsconfig.dist.json",
+    "clean": "rimraf release",
     "test": "karma start --single-run",
-    "prepare": "npm run build",
-    "build": "npm run build:js",
-    "build:js": "tsc --build tsconfig.dist.json",
-    "prebuild": "npm run test && npm run clean:pre",
-    "clean:pre": "rimraf release",
-    "postversion": "npm run build"
+    "prepublishOnly": "npm run test && npm run build",
+    "postversion": "npm run test && npm run build"
   },
   "repository": "git+https://github.com/angular-redux/redux-observable-decorator.git",
   "author": "Evan Schultz",
