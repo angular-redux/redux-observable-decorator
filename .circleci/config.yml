@@ -10,8 +10,6 @@ jobs:
 
     steps:
       - checkout
-      - save_cache:
-
       - restore_cache:
           <<: *source_cache
       - run: yarn install
