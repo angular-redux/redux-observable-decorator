@@ -1,22 +1,27 @@
 version: 2.0
 
-source_cache: &source_cache
+dep_cache: &dep_cache
   key: 'main-{{.Environment.NODE_VERSION}}-{{checksum "yarn.lock"}}'
 
 jobs:
-  build:
+  build_and_test:
     docker:
       - image: circleci/node:10-browsers
 
     steps:
       - checkout
       - restore_cache:
-          <<: *source_cache
+          <<: *dep_cache
       - run: yarn install
       - save_cache:
-          <<: *source_cache
+          <<: *dep_cache
           paths:
             - ~/.yarn
             - ~/.cache/yarn
             - node_modules
       - run: yarn test
+
+workflows:
+  build_and_test:
+    jobs:
+      - build_and_test
